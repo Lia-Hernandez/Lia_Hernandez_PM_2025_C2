@@ -8,7 +8,7 @@ typedef struct
     float promedio;
 }Alumno;
 
-void Limpiar()
+void Limpiar()//Para limpiar//
 {
     int d;
     while((d=getchar()) !='\n' &&d!=EOF);
@@ -16,17 +16,17 @@ void Limpiar()
 
 void Grabadisco(const char *nombrearchivo)
 {
-    FILE *archivo=fopen(nombrearchivo,"ab");
+    FILE *archivo=fopen(nombrearchivo,"ab");//Se abre el archivo en ab para que si hay algo mas en ese archivo no se borre //
     if(archivo ==NULL)
     {
-        perror("Error al abrir el archivo para escribir");
+        perror("Error al abrir el archivo para escribir");//Si presenta este error sale de la funcion//
         return;
     }
 
-    Alumno *nueAlumno =(Alumno *)malloc (sizeof(Alumno));
+    Alumno *nueAlumno =(Alumno *)malloc (sizeof(Alumno));//Aqui estamos piiendo memoria dinamica//
     if(nueAlumno==NULL)
     {
-        perror("Error al asignar memoria para el nuevo alumno");
+        perror("Error al asignar memoria para el nuevo alumno");//Si no se le asigno correctamente, sale este error//
         fclose(archivo);
         return;
     }
@@ -34,7 +34,7 @@ void Grabadisco(const char *nombrearchivo)
     printf("Ingrese nombre del alumno:");
     if(fgets(nueAlumno->nombre,sizeof(nueAlumno->nombre),stdin) !=NULL)
     {
-        nueAlumno->nombre[strcspn(nueAlumno->nombre,"\n")]= '\0';}
+        nueAlumno->nombre[strcspn(nueAlumno->nombre,"\n")]= '\0';}//strcspn se encarga de cortar la cadena//
         else
         {
             printf("Error al leer el nombre.\n");
@@ -59,13 +59,13 @@ void Grabadisco(const char *nombrearchivo)
         }
         Alumno* leeralumnodis(const char *nombreArchivo, int *numAlumnos)
         {
-            FILE *archivo=fopen(nombreArchivo,"rb");
+            FILE *archivo=fopen(nombreArchivo,"rb");//para leer el archivo binario//
             if(archivo ==NULL)
             {
                 *numAlumnos=0;
                 return NULL;
             }
-            fseek(archivo,0,SEEK_END);
+            fseek(archivo,0,SEEK_END);//
             long tamanoarch=ftell(archivo);
             *numAlumnos=tamanoarch/sizeof(Alumno);
 
@@ -74,7 +74,7 @@ void Grabadisco(const char *nombrearchivo)
                 fclose(archivo);
                 return NULL;
             }
-            Alumno *listaAlumnos=(Alumno *)malloc(*numAlumnos * sizeof(Alumno));
+            Alumno *listaAlumnos=(Alumno *)malloc(*numAlumnos * sizeof(Alumno));//aqui se pide memoria//
             if(listaAlumnos==NULL)
             {
                 perror("Error al asignar memoria para la lista de alumnos");
@@ -83,7 +83,7 @@ void Grabadisco(const char *nombrearchivo)
                 return NULL;
             }
 
-        fseek(archivo,0,SEEK_SET);
+        fseek(archivo,0,SEEK_SET);//mueve el puntero al inicio del archivo//
         fread(listaAlumnos,sizeof(Alumno),*numAlumnos,archivo);
         printf("\n%d alumnos leidos desde el disco.\n",*numAlumnos);
         fclose(archivo);
@@ -91,7 +91,7 @@ void Grabadisco(const char *nombrearchivo)
         }
         int main()
         {
-            const char *nombreArchivo="alumnos.temp";
+            const char *nombreArchivo="alumnos.temp";//nombre de archivo//
             Alumno *alumnosENMEMORIA=NULL;
                 int numAlumnos=0;
                 int opcion;
@@ -131,7 +131,7 @@ void Grabadisco(const char *nombrearchivo)
                                 Alumno *ptrActual=alumnosENMEMORIA;
                                 for(int i=0; i<numAlumnos; i++)
                                 {
-                                    printf("%-20s %-10.2f\n", ptrActual->nombre,ptrActual->promedio);
+                                    printf("%-20s %-10.2f\n", ptrActual->nombre,ptrActual->promedio); //Este es un puntero Actual//
                                     ptrActual++;
                                     }
                                     printf("\n");
@@ -146,10 +146,10 @@ void Grabadisco(const char *nombrearchivo)
                             default:
                                 printf("Opcion no valida.Intente de nuevo mas tarde.\n");
                         }
-                }while(opcion !=3);
+                }while(opcion !=3);// siempre y cuando no pongan 3 como opcion seguira//
                 if(alumnosENMEMORIA !=NULL)
                {
-                free(alumnosENMEMORIA);
+                free(alumnosENMEMORIA); //Se libera el espacio en memoria//
                 alumnosENMEMORIA=NULL;
         }
         return 0;
