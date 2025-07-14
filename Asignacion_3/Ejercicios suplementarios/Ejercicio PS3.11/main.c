@@ -1,41 +1,49 @@
 #include <stdio.h>
-void main(void)
+#include <stdlib.h>
+int main(void)
 
 {
 int N;
 int i, j; //Numero de anios
-double VIN[N] [4];
-double Totaltipo[4]=(0.0,0.0,0.0,0.0);
-double Totalanio[100]={0.0};
 
 
+
+
+        printf("Ingrese el numero de anios (N):");
+        scanf("%d", &N);
+
+        if (N<= 0)
+        {
+            printf("Error: El numero de anios debe ser un numero positivo.\n");
+            return 1;
+        }
+double VIN[N][4];
+double Totaltipo[4]={0.0,0.0,0.0,0.0};
+double Totalanio[N];
+    for (i =0; i<N; i++)
+    {Totalanio[i]=0.0;}
+    for (i=0;i<N;i++)
+    { printf("\nIngrese datos para el Anio %d\n",i+1);
+    for(j=0;j<4;j++)
     {
-        printf("Ingrese el numero de anios (N)");
-        scanf("%lf", &N);
-        if (N<= 0);
-
-    for int ("1 = 0; N; i++");
-    {printf("Ingrese la cantidad de litros de vino del tipo %d");
-    scanf("%d", &VIN(i)(j));
-    Totaltipo(j)+= VIN (i)(j);
-    Totalanio(i)+= VIN[i][j];
+    printf("Ingrese la cantidad de litros de vino del tipo %d");
+    scanf("%lf", &VIN[i][j]);
+    Totaltipo[j]+= VIN [i][j];
+    Totalanio[i]+= VIN[i][j];
+    }
+    }
     printf("\nTotal producido por tipo de vino:\n");
-    for (int j =0; j<4; j++) {
+    for ( j =0; j<4; j++) {
         printf("Tipo %d: %.2f litros\n", j+1, Totaltipo[j]);
 
     }
-    printf("\n Total producido por tipo de vino:\n");
-    for (int j = 0; j<4; j++)
-    {
-        printf("Tipo %d:%.2f litros\n", j+1, Totaltipo[j]);
 
-    }
     printf("\nEl total de la produccion anual:\n");
-    for(int i=0; i<N; i++)
+    for( i=0; i<N; i++)
     {
-        printf("Anio %d: %.2f de litros de vino \n", i+1, Totalanio[1] );
-    }
+        printf("Anio %d: %.2f de litros de vino\n", i+1, Totalanio[i]);
+}
 
 }
-    }
-}
+
+

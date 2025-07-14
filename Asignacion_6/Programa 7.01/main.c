@@ -24,7 +24,7 @@ void main(void)
     printf("\n");
     printf("\nIngrese otro caracter:");
     fflush(stdin);
-    scanf("%c", &p2);
+    scanf(" %c", &p2);
     /*Se puede utilizar scanf con el formato de variable %c para leer un caracter.*/
     printf("%c", p2);
     /*Se puede utilizar printf con el formato de variablr %c para escribir un caracter.*/

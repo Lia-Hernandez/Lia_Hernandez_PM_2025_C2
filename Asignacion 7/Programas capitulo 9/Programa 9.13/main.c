@@ -26,7 +26,7 @@ archivo.*/
     int res,con=0;
     char p;
     FILE *ar;
-    if ((ar=fopen("arc.text","r")) !=NULL)   /*Se abre el archivo para lectura.*/
+    if ((ar=fopen("arc.txt","r")) !=NULL)   /*Se abre el archivo para lectura.*/
     {
         while (!feof(ar)) /*Se trabaja con el archivo mientras no se llegue al fin de este.*/
         {

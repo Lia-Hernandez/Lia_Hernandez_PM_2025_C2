@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* Nomina.
+/*Nomina.
 El programa,al recibir, los salarios de 15 profesores, obtiene el total de la nomina
  de la universidad.
 

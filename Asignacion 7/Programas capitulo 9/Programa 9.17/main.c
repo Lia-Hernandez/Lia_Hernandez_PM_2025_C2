@@ -16,7 +16,7 @@ void main(void)
     FILE *ar;
     FILE *ap;
     ar=fopen("arc.txt", "r");  /*Se abre el archivo arc.txt para la lectura.*/
-    ap=fopen("arc.txt", "w");  /*Se abre el archivo arc1.txt para escritura.*/
+    ap=fopen("arc1.txt", "w");  /*Se abre el archivo arc1.txt para escritura.*/
     if ((ar !=NULL) && (ap !=NULL))
     {
         cambia(ar,ap);

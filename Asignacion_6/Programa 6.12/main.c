@@ -77,7 +77,7 @@ void main(void)
             EMEN=I;
         }
     }
-    printf("\n\Provincia con menor registro anual de lluvias en el ultimo anio:%d",EMEN+1);
+    printf("\n\nProvincia con menor registro anual de lluvias en el ultimo anio:%d",EMEN+1);
     printf("\nRegistro anual: %.2f", ELLU);
     }
     void Funcion3(float A[][MES][ANIO], int F, int C,int P)

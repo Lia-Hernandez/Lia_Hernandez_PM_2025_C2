@@ -31,6 +31,7 @@ typedef struct    /*Declaracion de la estructura matpro.*/
     {
         printf("Ingrese el tamanio del arreglo: ");
         scanf("%d",&TAM);
+        getchar();
     }
     while (TAM>50||TAM<1);    /*Se verifica que el tamanio del arreglo sea correcto.*/
 
@@ -51,6 +52,7 @@ typedef struct    /*Declaracion de la estructura matpro.*/
             printf("\nIngrese la matricula del alumno: ");
             scanf("%d",&A[I].matri);
             fflush(stdin);
+            getchar();
             printf("Ingrese el nombre del alumno:");
             gets(A[I].nom);
             for(J=0;J<5;J++)
@@ -60,6 +62,7 @@ typedef struct    /*Declaracion de la estructura matpro.*/
                 gets(A[I].cal[J].mat);
                 printf("\tPromedio %d: ",J+1);
                 scanf("%d",&A[I].cal[J].pro);
+                getchar();
             }
 
     }

@@ -20,7 +20,7 @@ char cad3[]={'B','i','e','n','v','e','n','i','d','o','\0'};
 /*Observa otra forma de asignacion de valores a la variable cad3.*/
 char cad4[20], cad5[20],cad6[20];
 
-printf("\nLa cadena cad0 es: ");d
+printf("\nLa cadena cad0 es: ");
 puts(cad0);
 /*La funcion puts es la mas apropiada para escribir cadenas de caracteres.
 Observa que esta funcion baja automaticamente una linea despues de imprimir

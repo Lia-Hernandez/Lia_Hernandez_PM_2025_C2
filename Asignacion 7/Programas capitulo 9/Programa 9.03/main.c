@@ -14,11 +14,13 @@ void main(void)
     {
         printf("\nDesea ingresar una cadena de caracteres? Si-1 No-0:");
         scanf("%d", &res);
-        while(res)
+        fflush(stdin);
+        while(getchar() !='\n' && getchar() !=EOF);
+        while (res)
         {
-            fflush(stdin);
+
             printf("Ingrese la cadena: ");
-            gets(cad);
+            fgets(cad,sizeof(cad),stdin);
             fputs(cad,ar);  /*Observa la forma como se escribe la cadena en el archivo.*/
             printf("\nDesea ingresar otra cadena de caracteres? Si-1 No-0:");
             scanf("%d",&res);

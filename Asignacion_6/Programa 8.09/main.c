@@ -25,7 +25,7 @@ float precio;
 char dispo;                /*Disponibilidad.*/
 }propiedades;
 
-void Lectura(propiedades,int);
+void Lectura(propiedades A[],int);
 void F1(propiedades *,int);           /*Prototipos de funciones.*/
 void F2(propiedades *,int);
 
@@ -56,6 +56,7 @@ for(I=0;I<T;I++)
 printf("\n\tIngrese datos de la propiedad %d",I+1);
 printf("\nCLave:");
 fflush(stdin);
+getchar();
 gets(A[I].clave);
 printf("Superficie cubierta:");
 scanf("%d",&A[I].scu);
@@ -63,15 +64,19 @@ printf("Superficie terreno:");
 scanf("%d", &A[I].ste);
 printf("Caracteristicas:");
 fflush(stdin);
+getchar();
 gets(A[I].car);
 printf("\tZona:");
 fflush(stdin);
+getchar();
 gets(A[I].ubi.zona);
 printf("\tCalle:");
 fflush(stdin);
+getchar();
 gets(A[I].ubi.calle);
 printf("\tColonia:");
 fflush(stdin);
+getchar();
 gets(A[I].ubi.colo);
 printf("Precio: ");
 scanf("%f", &A[I].precio);

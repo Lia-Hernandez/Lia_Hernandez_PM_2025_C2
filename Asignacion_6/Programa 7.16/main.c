@@ -7,20 +7,23 @@ veces se encuentra la segunda cadena en la primera.*/
 
 void main(void)
 {
-char cad1[50],cad2[50], *cad0= "";
+char cad1[50];
+char cad2[50];
+char cad0[50];
+char *puntero_busqueda;
 int i=0;
 printf("\n Ingrese la primera cadena de caracteres: ");
 gets(cad1);
 printf("\n Ingrese la cadena a buscar: ");
 gets(cad2);
 strcpy(cad0,cad1);        /*Se copia la cadena original a cad0.*/
-cad0=strstr (cad0,cad2);
+puntero_busqueda=strstr(cad0,cad2);
 /*En cad0 se asigna el apuntador a la primera ocurrencia de la cadena cad2.
 Si no existe se almacena NULL.*/
-while (cad0 !=NULL)
+while (puntero_busqueda !=NULL)
 {
         i++;
-        cad0=strstr (cad0 +1,cad2);
+     puntero_busqueda=strstr (puntero_busqueda+1,cad2);
         /*Se modifica nuevamente la cadena, moviendo el apuntador una posicion.*/
 }
 printf("\nEl numero de veces que aparece la segunda cadena es: %d", i);

@@ -5,7 +5,7 @@
 El programa, al recibir como datos N numeros enteros, calcula cuantos
 de ellos son pares y cuantos impares, con la ayuda de una funcion.*/
 
-void parim(int, int*, int*);      /*Prototipo de funcion.*/
+void parimp(int, int*, int*);      /*Prototipo de funcion.*/
 
 void main (void)
 {

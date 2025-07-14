@@ -18,7 +18,7 @@ float MAT[MAX][MAX];
 do
 {
     printf("Ingrese el numero de filas:");
-    scanf("%d", F);
+    scanf("%d", &F);
 }
 while (F>MAX ||F<1);  /*Se verifica que el numero de filas sea correcto.*/
 do

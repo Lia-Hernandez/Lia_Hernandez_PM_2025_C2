@@ -15,14 +15,14 @@ void main (void)
 int mad (int N1)
 /*Esta funcion calcula el mayor divisor del numero N1.*/
 {
-  int I= (N1/N2)  ;
+  int I= (N1/2)  ;
   /*I se inicializa con el maximo valor posible que puede ser divisor
   de N1*/
   while (N1 % I);
     /*El ciclo se mantiene activo mientras (N1 % I) sea distinto de cero.
     Cuando el resultado sea 0, se detiene, ya que se habra encontrado
     el mayor divisor de N1.*/
-    I - -;
+    I--;
   return I;
 }
 

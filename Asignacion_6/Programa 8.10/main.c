@@ -74,30 +74,38 @@ for (I=0;I<T; I++)
    scanf("%d",&A[I].num);
    printf("Nombre del vendedor:");
    fflush(stdin);
+   getchar();
    gets(A[I].nom);
    printf("Ventas del anio: \n");
    for(J=0;J<12;J++)
    {
        printf("\tMes %d: ",J+1);
        scanf("%f",&A[I].ven[J]);
+       getchar( );
    }
    printf("Domicilio del vendedor: \n");
    printf("\tCalle y numero:");
    fflush(stdin);
+   getchar();
    gets(A[I].domi.cnu);
    printf("\tColonia:");
    fflush(stdin);
+   getchar();
    gets(A[I].domi.col);
    printf("\tCodigo Postal:");
    fflush(stdin);
+   getchar();
    gets(A[I].domi.cp);
    printf("\tCiudad:");
    fflush(stdin);
+   getchar();
    gets(A[I].domi.ciu);
    printf("Salario del vendedor:");
    scanf("%f",&A[I].sal);
+   getchar();
    printf("Forma de Pago (Banco-1 Nomina-2 Ventanilla-3):");
    scanf("%d",&A[I].cla);
+   getchar();
    switch(A[I].cla)
    {
        case 1: {

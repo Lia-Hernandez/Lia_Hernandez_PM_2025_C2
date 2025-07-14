@@ -10,8 +10,9 @@ void main(void)
     int I, K= 4;
     for (I= 1; I<=3; I++)
     {
-        printf("\n\nValor de K antes de llamar a la funcion: %d", ++K);
-        printf("\nEl valor de K despues de llamar a la funcion: %d", f1(&K));
+        printf("\n\nValor de K antes de llamar a la funcion: %d",K);
+        f1(&K);
+        printf("\nEl valor de K despues de llamar a la funcion: %d",K);
         /*Llamada a la funcion f1. Se pasa la direccion de la variable K,
         por medio del operador de direccion: &.*/
     }

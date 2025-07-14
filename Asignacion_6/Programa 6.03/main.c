@@ -59,6 +59,7 @@ void Lectura(int A[][C][P], int FI, int CO, int PR)
          }
          printf("\n\nAnio con mayor ingreso de alumnos: %d Alumnos: %d", A0+1,MAY);
          }
+ }
 
          void Funcion2(int A[][C][P], int FI, int CO, int PR)
          /*Esta funcion se utiliza para determinar la carrera que recibio el mayor
@@ -98,3 +99,4 @@ void Lectura(int A[][C][P], int FI, int CO, int PR)
              }
              printf("\n\nAnio con mayor mayor ingreso de alumnos:%d Alumnos: %d", A0+1,MAY);
          }
+

@@ -22,7 +22,7 @@ typedef struct      /*Declaracion de una estructura utilizando typedef.*/
     /*Observa que uno de los campos de la estructura alumno es una union.*/
 }alumno;
 
-void Lectura(alumno a);        /*Prototipo de funcion.*/
+void Lectura(alumno *a);        /*Prototipo de funcion.*/
 
 void main(void)
 {
@@ -39,14 +39,17 @@ alumno a1={120,"Maria", "Contabilidad", 8.9,"5-158-40-50"},a2,a3;
  printf("Ingrese la matricula:");
  scanf("%d", &a2.matricula);
  fflush(stdin);
+ getchar();
  printf("Ingrese el nombre: ");
  gets(a2.nombre);
  fflush(stdin);
+ getchar();
  printf("Ingrese la carrera: ");
  gets(a2.carrera);
  printf("Ingrese el promedio: ");
  scanf("%f", &a2.promedio);
  fflush(stdin);
+ getchar();
  printf("Ingrese el correo electronico: ");
  gets(a2.personales.correo);
  /*Observa que en la variable a2 de tipo estructura alumno el segundo campo de la
@@ -106,14 +109,17 @@ estructura alumno.*/
 printf("\nIngrese la matricula: ");
 scanf("%d",&(*a).matricula);
 fflush(stdin);
+getchar();
 printf("Ingrese el nombre:");
 gets(a->nombre);
 fflush(stdin);
+getchar();
 printf("Ingrese la carrera: ");
 gets((*a).carrera);
 printf("Ingrese el promedio:");
 scanf("%f",&a->promedio);
 printf("Ingrese el telefono celular: ");
 fflush(stdin);
+getchar();
 gets(a->personales.celular);
 }

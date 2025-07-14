@@ -15,10 +15,10 @@ void f1(void)
  global I. */
  {
      int K=2;     /*Variable local. */
-     K +=K;
-     printf("\n\nel valor de la variable local es: %d", K);
-    ::K = ::K + K;       /*Uso de ambas variables. */
-     printf("\nEl valor de la variable global es: %d",::K);
+     K+=k;
+     printf("\n\nEl valor de la variable local es: %d", K);
+     k = k + K;       /*Uso de ambas variables. */
+     printf("\nEl valor de la variable global es: %d",k);
  }
 
 

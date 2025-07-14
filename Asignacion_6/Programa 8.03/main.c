@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 /*Estructuras-3.
@@ -32,11 +33,13 @@ void Lectura(struct empleado *a)
 printf("\nIngrese el nombre del empleado: ");
 gets(a->nombre);
 fflush(stdin);
+getchar();
 printf("Ingrese el departamento de la empresa: ");
 gets(a->departamento);
 printf("Ingrese el sueldo del empleado: ");
 scanf("%f", &a->sueldo);
 fflush(stdin);
+getchar();
 printf("--Ingrese la direccion del empleado--");
 printf("\n\tCalle: ");
 gets(a->direccion.calle);
@@ -45,6 +48,7 @@ scanf("%d",&a->direccion.numero);
 printf("\tCodigo Postal: ");
 scanf("%d", &a->direccion.cp);
 fflush(stdin);
+getchar();
 printf("\tLocalidad: ");
 gets(a->direccion.localidad);
 }
@@ -59,10 +63,11 @@ void main(void)
 
     /*En el programa principal se leen los campos de una variable, e3, y un
     apuntador de tipo estructura, *e1.*/
-    e1= new (struct empleado);
+    e1=  (struct empleado *)malloc(sizeof(struct empleado));
     printf("\nIngrese el nombre del empleado 1: ");
     scanf("%s",&(*e1).nombre);
     fflush(stdin);
+    getchar();
     printf("Ingrese el departamento de la empresa: ");
     gets(e1->departamento);
     printf("Ingrese el sueldo del empleado: ");
@@ -70,6 +75,7 @@ void main(void)
     printf("--Ingrese la direccion del empleado--");
     printf("\n\tCalle:");
     fflush(stdin);
+    getchar();
     gets(e1->direccion.calle);
     printf("\tNumero:");
     scanf("%d",&e1->direccion.numero);
@@ -77,16 +83,19 @@ void main(void)
     scanf("%d", &e1->direccion.cp);
     printf("\tLocalidad: ");
     fflush(stdin);
+    getchar();
     gets(e1->direccion.localidad);
 
     printf("\nIngrese el nombre del empleado 3: ");
     scanf("%s",&e3.nombre);
     fflush(stdin);
+    getchar();
     printf("Ingrese el sueldo del empleado: ");
     scanf("%f",&e3.sueldo);
     printf("--Ingrese la direccion del empleado--");
     printf("\n\tCalle: ");
     fflush(stdin);
+    getchar();
     gets(e3.direccion.calle);
     printf("\tNumero: ");
         scanf("%d",&e3.direccion.numero);
@@ -94,10 +103,11 @@ void main(void)
         scanf("%d",&e3.direccion.cp);
         printf("\tLocalidad:");
         fflush(stdin);
+        getchar();
         gets(e3.direccion.localidad);
         /*En la funcion Lectura se leen los campos de una variable,e4, y un apuntador
         de tipo estructura, *e2.*/
-        e2=new(struct empleado);
+        e2=(struct empleado *)malloc(sizeof(struct empleado));
         Lectura(e2);
 
         Lectura(&e4);

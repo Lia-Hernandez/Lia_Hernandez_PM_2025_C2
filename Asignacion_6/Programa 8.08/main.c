@@ -36,6 +36,7 @@ void main(void)
     {
         printf("Ingrese el numero de pacientes: ");
         scanf("%d", &TAM);
+        getchar();
     }
     while (TAM>50||TAM<1);     /*Se verifica que el tamanio del arreglo sea correcto.*/
     Lectura(HOSPITAL,TAM);
@@ -59,20 +60,25 @@ void Lectura(paciente A[],int T)
          scanf("%d",&A[I].edad);
          printf("Sexo (F-M):");
          scanf("%c", &A[I].sexo);
+         getchar();
          printf("Condicion (1..5):");
          scanf("%d", &A[I].con);
          fflush(stdin);
          printf("\tCalle:");
          gets(A[I].dom.cal);
+         getchar();
          printf("\tNumero:");
          scanf("%d",&A[I].dom.num);
          fflush(stdin);
+         getchar();
          printf("\tColonia:");
          gets(A[I].dom.col);
          fflush(stdin);
+         getchar();
          printf("\tCiudad:");
          gets(A[I].dom.ciu);
          fflush(stdin);
+         getchar();
          printf("Telefono: ");
          gets(A[I].tel);
 }

@@ -7,7 +7,7 @@ El programa, al recibir como dato un arreglo unidimensional de tipo
 cadena de caracteres, determina el numero de minusculas y mayusculas
 que hay en la cadena.*/
 
-void minymay(char cad);      /*Prototipo de funcion.*/
+void minymay(char *cad);      /*Prototipo de funcion.*/
 
 void main(void)
 {
@@ -18,16 +18,21 @@ caracteres.*/
 
 printf("\nIngrese el numero de filas del arreglo: ");
 scanf("%d", &n);
+int c;
+while((c=getchar()) != '\n' && c !=EOF);
 for (i=0; i<n;i++)
 {
     /*Para cada fila se lee la cadena correspondiente.*/
-    printf("Ingrese la linea %d de texto: ", i+1);
+    printf("Ingrese la linea %d de texto: \n ", i+1);
     fflush(stdin);
     gets(FRA[i]);
 }
 printf("\n\n");
 for (i=0; i<n; i++)
-    minymay(FRA[i]);
+  {
+
+   minymay(FRA[i]);
+  }
 }
 
 void minymay(char *cadena)

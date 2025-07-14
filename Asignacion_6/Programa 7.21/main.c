@@ -9,11 +9,14 @@ void main(void)
     char FRA[20][30];
     printf("\nIngrese el numero de filas del arreglo:");
     scanf("%d",&n);
+    getchar();
+    int c;
+    while ((c=getchar()) !='\n' && c !=EOF);
     for(i=0;i<n;i++)
     {
         printf("Ingrese la linea de texto numero %d: ",i+1);
-        fflush(stdin);
-        gets(FRA[i]);
+        fgets(FRA[i],sizeof(FRA[i]),stdin);
+        FRA[i][strcspn(FRA[i], "\n")]=0;
     }
     printf("\n\n");
     intercambia(FRA,n);
@@ -23,7 +26,7 @@ void main(void)
         puts(FRA[i]);
     }
     }
-    void Intercambia(char FRA[][30],int n)
+    void intercambia(char FRA[][30],int n)
     /*Esta funcion intercambia las filas del arreglo.*/
     {
     int i,j;
@@ -34,7 +37,7 @@ void main(void)
         strcpy(cad,FRA[i]);
         strcpy(FRA[i],FRA[j]);
         strcpy(FRA[j],cad);
-        j--
+        j--;
     }
     }
 

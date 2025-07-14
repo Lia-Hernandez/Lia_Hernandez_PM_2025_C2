@@ -7,7 +7,7 @@ void main(void)
 {
     int i;
     double d;
-    long 1;
+    long l_val;
     char cad0[20],*cad1;
 
     printf("\nIngrese una cadena de caracteres: ");
@@ -36,13 +36,13 @@ void main(void)
     printf("\n%s \t %.2lf", cad0, d+1.50);
     puts(cad1);
 
-    1 =atol(cad0);
+    l_val =atol(cad0);
     /*La funcion atol convierte una cadena de caracteres que contiene numeros a
     un valor de tipo long. Si la cadena no contiene numeros o comienza con
     otro caracter, regresa 0 o el valor queda indefinido.*/
     printf("\n%s \t %ld ", cad0, 1+10);
 
-    1 =strtol(cad0, &cad1, 0);
+    l_val =strtol(cad0, &cad1, 0);
     /*La funcion strtol convierte una cadena de caracteres que contiene numeros a
     un valor de tipo long. El resto de la cadena se almacena en el otro argumento
      de la funcion, &cad1.El tercer argumento se utiliza para indicar que la

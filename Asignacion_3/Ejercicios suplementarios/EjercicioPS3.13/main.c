@@ -33,12 +33,12 @@ if (NU1>NU2)
 {NU1=3;
 
 }
-printf("Pares de numeros enteros positivos entre %d y %d:\n", NU1, NU2 );
+printf("Pares de numeros enteros positivos entre %d y %d: \n",NU1,NU2);
 for (int i= NU1; i<=NU2-2; i++)
 {if (es_primo (i))
     {
         if (es_primo (i+2)){
-            printf("(%d ,%d)\n", i,i+2);
+            printf("%d %d\n",i,i+2);
         }
     }
 

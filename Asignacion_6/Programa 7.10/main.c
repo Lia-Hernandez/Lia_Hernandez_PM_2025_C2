@@ -12,15 +12,17 @@ int i=0;
 float sum=0.0;
 printf("\nDesea ingresar una cadena de caracteres (S/N)?");
 c=getchar();
+getchar();
 while (c=='S')
 {
-printf("\nIngrese la cadena de caracteres: ");
+printf("\nIngrese la cadena de caracteres: ",cad);
 fflush(stdin);
 gets(cad);
 i++,
 sum+=atof(cad);
 printf("\nDesea ingresar otra cadena de caracteres (S/N)?");
 c=getchar();
+getchar();
 }
 printf("\nSuma: %.2f", sum);
 printf("\nPromedio: %.2f", sum/i);

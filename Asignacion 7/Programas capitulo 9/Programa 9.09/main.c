@@ -17,9 +17,9 @@ void main(void)
 {
     FILE *ar;
     if ((ar=fopen("ad1.dat", "r"))!=NULL)
-        escribe(ar);
+        lee(ar);
     else
-        printf("n\El archivo no se puede abrir");
+        printf("\nEl archivo no se puede abrir");
     fclose(ar);
 }
 

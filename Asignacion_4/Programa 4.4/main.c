@@ -14,11 +14,14 @@ void main(void)
 
 {
     int I;
+}
+  int f1(void)
+   {
+       K+=K;
+    return (K);
     /*La funcion f1 utilizada la variable global. */
-    {
-        K+= K;
-        return (K);
-    }
+   }
+
     int f2 (void)
     /* La funcion f3 utiliza la variable local.*/
     {
@@ -38,11 +41,8 @@ void main(void)
         /*La funcion f4 utiliza dos variables con el mismo nombre: local
         y global.*/
         {
-            int K=5;
-            K=K + ::K;              /*Uso de la variable local (K) y global (::K) */
-            return (K);
-
-
-
-
+            int Ki=5;
+            K=K + Ki;              /*Uso de la variable local (K) y global (::K) */
+            return (Ki);
 }
+

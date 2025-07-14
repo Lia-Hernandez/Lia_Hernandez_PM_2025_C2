@@ -14,19 +14,19 @@ la variable cad0 --apuntador de tipo cadena de caracteres.*/
 puts(cad0);
 
 char *cad1;
-gets(*cad1);  gets(cad1);
+puts(cad0);
 /*Incorrecto. Ambas lecturas generan un error en la ejecucion del programa .
 Para que un apuntador de tipo cadena de caracteres se pueda utilizar con la
 funcion de lectura gets, es necesario inicializarlo como se hace en la siguiente
 instruccion.*/
 
-char *cad1= "";
-gets(cad1);
+char *cad1p= "";
+gets(cad1p);
 /*Correcto. Primero se le asigna un valor a la posicion de memoria a la que
 apunta cad1. Luego podemos modificar el contenido de esta posicion de memoris
 utilizando la funcion gets.*/
 
-char cad[];
+char cad[100];
 /*Incorrecto. Se genera un error en la compilacion del programa, porque no
 se reserva el espacio correspondiente.*/
 
@@ -36,8 +36,8 @@ gets(cad2);
 /*El valor de una cadena (declarada como cadena[longitud]) se puede modificar
 por medio de lecturas o utilizando funciones de la biblioteca string.h
 (ejemplo 7.6). */
-puts(cad2);
-cad2[10]="Guatemala";
+//puts(cad2);
+//cad2[10]="Guatemala";
 /*Incorrecto. Observa cuidadosamente el caso anterior y analiza la diferencia
 que existe con este. Aqui se produce un error en la compilacion del programa,
 al tratar de asignar la cadena de caracteres "Guatemala" al caracter 11 de la

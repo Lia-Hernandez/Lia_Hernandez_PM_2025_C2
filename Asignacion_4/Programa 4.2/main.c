@@ -20,7 +20,7 @@ int cubo (void)   /*Declaracion de la funcion.*/
 {
     int I=2;    /*Variable local entera I con el mismo nombre
     que la variable global.*/
-    return (I^I^I);
+    return (I*I*I);
 
 
     }

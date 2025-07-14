@@ -10,14 +10,20 @@ int ARRE[100];                /*Declaracion del arreglo.*/
 for (I=0; I<100; I++)
 {
     printf("Ingrese el elemento %d de arreglo: ", I+1 );
-    scanf("%d", &NUM);      /*Lectura -asignacion --del arreglo */
+    scanf("%d", &ARRE[I]);      /*Lectura -asignacion --del arreglo */
     }
     printf("\n\nIngrese el numero que se va a buscar en el arreglo: ");
     scanf("%d", &NUM);
     for (I=0;I<100;I++)
+    {
+
+
         if (ARRE[I]== NUM) /*Comparacion del numero con los elementos del
-                                arreglo*/
+                               arreglo*/
+        {
     CUE++;
-    printf("\n\nEl %d se encuentra %d veces en el arreglo", NUM,CUE);
+        }
+}
+    printf("\n\nEl %d se encuentra %d veces en el arreglo",NUM,CUE);
 }
 

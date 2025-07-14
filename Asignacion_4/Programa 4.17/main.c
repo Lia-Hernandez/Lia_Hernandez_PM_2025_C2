@@ -12,7 +12,7 @@ El programa permite calcular el promedio mensual de las lluvias caidas en
     float GOL,PAC, CAR, AGOL = 0,APAC=0, ACAR=0;
     for (I=1; I<= 12; I++)
     {
-        printf("\n\n\Ingresa las lluvias del mes %d", I);
+        printf("\n\nIngresa las lluvias del mes %d", I);
         printf("\nRegiones Golfo, Pacifico y Caribe: ");
         scanf("%f %f %f", &GOL, &PAC, &CAR);
         AGOL +=GOL;

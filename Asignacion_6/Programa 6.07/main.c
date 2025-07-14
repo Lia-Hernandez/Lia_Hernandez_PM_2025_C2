@@ -5,7 +5,7 @@ El programa, al recibir como datos las ventas mensuales de diferentes
 productos, obtiene informacion estadistica valiosa para la empresa.*/
 
 void Lectura1(int [15][12]);
-void Lectura2(float, int );
+void Lectura2(float[], int );
 void Funcion1(int [][12], int,int, float*, float*); /*Prototipos de funciones.*/
 void Funcion2 (float *, int);
 void Funcion3 (float *, int);

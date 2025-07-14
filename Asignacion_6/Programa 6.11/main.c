@@ -68,7 +68,7 @@ fondos.*/
 int I,J;
 float SUM,PRO;
 printf("\n\nPROMEDIO ANUALIZADO DE LAS ACCIONES DE LOS FONDOS");
-for(I=0;I<R;I++)
+for(I=0;I<F;I++)
 {
     SUM=0;
     for(J=0;J<C;J++)
