@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1753070479 source:c:\users\hp\onedrive - instituto tecnológico de las américas (itla)\lia_hernandez_pm_2025_c2\asignacion_9\de color a escala de grises\main.c
+	<stdio.h>
+	<stdlib.h>
+	"stb_image.h"
+	"stb_image_write.h"
+
+1753065593 c:\users\hp\onedrive - instituto tecnológico de las américas (itla)\lia_hernandez_pm_2025_c2\asignacion_9\de color a escala de grises\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1753065533 c:\users\hp\onedrive - instituto tecnológico de las américas (itla)\lia_hernandez_pm_2025_c2\asignacion_9\de color a escala de grises\stb_image_write.h
+	<stdlib.h>
+	<stdio.h>
+	<stdarg.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<assert.h>
+
