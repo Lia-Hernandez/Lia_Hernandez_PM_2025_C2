@@ -66,7 +66,7 @@ int esPiezadeJugador(char pieza,int turno);
 int esContrincante(char pieza,int turno);
 void PromPeon(Partida *p,int f,int c);
 
-int main(void)
+void main(void)
 {
     Partida partida;
     Movimiento mov;
@@ -107,9 +107,9 @@ int main(void)
                 {
                     printf("\nError en la entrada.Formato: a2 a4.Intente de nuevo.\n");
                 }
-
             }
         }
+    }
 
 //Coloca las piezas en su posicion inicial//
     void iniciaPartida(Partida *p)
@@ -154,7 +154,6 @@ int main(void)
                 printf("%c ",p->tablero[i][j]);
             }
             printf("| %d\n",8-i);
-
     }
     printf("  ------------------\n  a b c d e f g h\n\n");
     }
@@ -165,10 +164,11 @@ int main(void)
 
         printf("Turno de la %s. Ingrese movimiento (tipo:e2 e3):",
         (partida->turnoActual==BLANCAS)? "Blancas" : "Negras");
-        fgets(entrada, sizeof(entrada),stdin);
+        gets(entrada);
 
         if(strlen(entrada)<5)
             return FALSO;
+            //Convierte texto a coordenadas numericos//
         cOrigen=tolower(entrada[0]) -'a';
         fOrigen=8-(entrada[1]-'0');
         cDestino=tolower(entrada[3])-'a';
@@ -185,13 +185,13 @@ int main(void)
         mov->cDestino=cDestino;
 
         return VERDADERO;
-        }//Verifica si una celda pertenece al jugador actual//
+        }//Verifica si una pieza en una celda pertenece al jugador actual//
         int esPiezadeJugador(char pieza,int turno)
         {
             if(pieza==VACIO)
                 return FALSO;
             return(turno == BLANCAS)? isupper(pieza) :islower(pieza);
-        }
+        }//Verifica si una pieza en una celda pertenece al contrincante//
         int esContrincante(char pieza,int turno)
         {
            if(pieza==VACIO) return FALSO;
@@ -200,7 +200,7 @@ int main(void)
         int validMovLineal(char tablero[8][8],Movimiento mov)
         {
             int PasoF =(mov.fDestino > mov.fOrigen)?1 : (mov.fDestino <mov.fOrigen)?-1:0;
-            int PasoC=(mov.cDestino>mov.cOrigen)? 1: (mov.cDestino >mov.cOrigen)? -1 :0;
+            int PasoC=(mov.cDestino>mov.cOrigen)? 1: (mov.cDestino < mov.cOrigen)? -1 :0;
             int f=mov.fOrigen + PasoF;
             int c=mov.cOrigen +PasoC;
 
@@ -211,10 +211,10 @@ int main(void)
                 c+=PasoC;
             }
             return VERDADERO;
-        }
+        }//Movimiento diagonal//
         int validMovDiagonal(char tablero[8][8],Movimiento mov)
         {
-            int PasoF=(mov.fDestino>mov.fOrigen)?1: -1;
+            int PasoF=(mov.fDestino>mov.fOrigen)?1: -1;//se toma en cuenta la direccion//
             int PasoC=(mov.cDestino>mov.cOrigen)?1: -1;
 
             int f=mov.fOrigen +PasoF;
@@ -226,22 +226,28 @@ int main(void)
                 c+= PasoC;
             }
             return VERDADERO;
-            }
+            }//Valida los movimientos del peon
             int validMovPeon(Partida *p,Movimiento mov)
             { int dir=(p->turnoActual ==BLANCAS)?-1 : 1;
             int fO=mov.fOrigen,cO=mov.cOrigen,fD=mov.fDestino,cD=mov.cDestino;
-
+             //Movimiento simple//
             if(fD == fO + dir && cD ==cO && p->tablero[fD][cD] ==VACIO)return VERDADERO;
-
+            //movimiento doble//
              int fInicial=(p->turnoActual ==BLANCAS)  ?6 :1;
              if(fO ==fInicial && fD == fO +2 * dir && cD == cO && p->tablero[fO + dir][cD]==VACIO && p->tablero[fD][cD]==VACIO)
                 return VERDADERO;
+              //captura diagonal//
+             if(fD==fO+dir &&(cD == cO +1 || cD==cO -1) && esContrincante(p->tablero[fD][cD],p->turnoActual))
+                return VERDADERO;
+                int filaalpaso=(p->turnoActual ==BLANCAS)?3:4;
+                if(fO==filaalpaso && fD ==fO+dir &&(cD ==cO+1 || cD==cO-1)&&
+                   p->peonDobleAvanceCol==cD && esContrincante(p->tablero[fO][cD],p->turnoActual))
+                return VERDADERO;
 
-             if(fD==fO+dir &&(cD == cO +1 || cD==cO -1) && esContrincante(p->tablero[fD][cD],p->turnoActual))return VERDADERO;
              return FALSO;
              }
              int validMovCaballo(Movimiento mov)
-             {int df=abs(mov.fDestino - mov.fOrigen);
+             {int df=abs(mov.fDestino-mov.fOrigen);
              int dc=abs(mov.cDestino-mov.cOrigen);
              return(df ==2 && dc ==1)||(df==1 && dc ==2);
              }
@@ -251,7 +257,7 @@ int main(void)
                  int dc=abs(mov.cDestino-mov.cOrigen);
 
                  if(df <= 1 && dc<=1)return VERDADERO;
-
+                   //Enroque//
                  int filaRey=(p->turnoActual == BLANCAS)? 7:0;
                  if(mov.fOrigen !=filaRey || mov.cOrigen !=4) return FALSO;
 
@@ -324,8 +330,11 @@ int main(void)
 
                     if(tolower(piezaMovidaTemp)=='p')
                     {int filaalpaso=(p->turnoActual==BLANCAS)? 3:4;
-                    if(mov.fOrigen == filaalpaso && p->peonDobleAvanceCol ==mov.cDestino && abs(mov.cDestino -mov.cOrigen)==1 && abs(mov.fDestino-mov.fOrigen)==1 && partidatemp.tablero[mov.fDestino -(p->turnoActual ==BLANCAS? -1 : 1)][mov.cDestino]==((p->turnoActual ==BLANCAS)? PEON_N : PEON_B))
-                    { partidatemp.tablero[mov.fDestino -(p->turnoActual== BLANCAS?-1 : 1)][mov.cDestino]=VACIO;
+                    if(mov.fOrigen == filaalpaso && p->peonDobleAvanceCol==mov.cDestino &&
+                    abs(mov.cDestino-mov.cOrigen)==1 && abs(mov.fDestino-mov.fOrigen)==1 &&
+                       partidatemp.tablero[mov.fDestino -(p->turnoActual==BLANCAS?-1:1)]
+                    [mov.cDestino]==((p->turnoActual == BLANCAS)?PEON_N : PEON_B)) {
+                            partidatemp.tablero[mov.fDestino-(p->turnoActual==BLANCAS?-1 :1)][mov.cDestino]=VACIO;
                     }
                 }
                 if(tolower(piezaMovidaTemp)=='k' && abs(mov.cDestino-mov.cOrigen)==2)
@@ -348,19 +357,15 @@ int main(void)
                     p->peonDobleAvanceCol=-1;
 
                     if(tolower(pieza)=='p')
-                    {if(abs(fD-fO)==2) {p->peonDobleAvanceCol=cO;
-                    }else{
-
-                    int filaalpaso=(p->turnoActual==BLANCAS)? 3: 4;
-                    if(fO== filaalpaso && cD==p->peonDobleAvanceCol && abs(cD-cO) ==1 && abs(fD-fO)==1 && p->tablero[fD- ((p->turnoActual==BLANCAS)?-1 : 1)[cD]==((p->turnoActual==BLANCAS)? PEON_N : PEON_B))
-                    {p->tablero[fD-((p->turnoActual==BLANCAS)?-1:1)][cD]=VACIO;
-
-                    }
-                    }
-                        p->tablero[fO][cD]=VACIO;
-                    }
-                }
-                if(tolower(pieza)=='k' && abs(cD-cO)==2)
+                    {
+                        if(abs(fD-fO)==2)p->peonDobleAvanceCol=cO;
+                        int filaalpaso=(p->turnoActual==BLANCAS)?3:4;
+                        if(fO==filaalpaso && cD==p->peonDobleAvanceCol && p->tablero[fD-((p->turnoActual==BLANCAS)?-1 :1)][cD]==((p->turnoActual==BLANCAS)?PEON_N : PEON_B)&& abs(cD-cO)==1 && abs(fD-fO)==1)
+                            {
+                                p->tablero[fD-((p->turnoActual==BLANCAS)?-1 :1)][cD]=VACIO;
+                            }
+                        }
+                    if ((tolower(pieza)=='k' && abs(cD-cO)==2))
                 {
                     int fila=fO;
                     int colTorreOrigen,colTorreDestino;
@@ -390,8 +395,8 @@ int main(void)
                 {
                     PromPeon(p,fD,cD);
                 }
-
-            void CambiarTurno(Partida *p)
+            }
+         void CambiarTurno(Partida *p)
         {
             p->turnoActual=(p->turnoActual ==BLANCAS)? NEGRAS : BLANCAS;
         }
@@ -423,7 +428,7 @@ int main(void)
                 if(cR >0 && tablero[fR + dir][cR-1]== peonCon)return VERDADERO;
                 if(cR <7 && tablero[fR + dir][cR +1]==peonCon)return VERDADERO;
             }
-            int movsCaballo[8][2]={{-2,-1},{-2,1},{-1,-2},{-1,-2},{1,-2},{1,2},{2,-1},{2,1}};
+            int movsCaballo[8][2]={{-2,-1},{-2,1},{-1,-2},{-1,2},{1,-2},{1,2},{2,-1},{2,1}};
             char caballoCon=(colorRey == BLANCAS)?CABALLO_N : CABALLO_B;
             for (i=0;i<8;i++)
             {
@@ -473,7 +478,7 @@ int main(void)
                                 mov.fOrigen=fO;
                                 mov.cOrigen=cO;
                                 mov.fDestino=fD;
-                                mov.fOrigen=cD;
+                                mov.cDestino=cD;
                                 if(esMovLegal(p,mov))
                                 {
                                     return VERDADERO;
@@ -507,11 +512,13 @@ int main(void)
                 case 'R':nuevaPieza=TORRE_B;break;
                 case 'B':nuevaPieza=ALFIL_B;break;
                 case 'N':nuevaPieza=CABALLO_B;break;
+                case 'Q':nuevaPieza=REINA_B;break;
             }
             p->tablero[f][c]=(p->turnoActual == BLANCAS)? nuevaPieza : tolower(nuevaPieza);
      }
-     return 0;
-     }
+
+
+
 
 
 
