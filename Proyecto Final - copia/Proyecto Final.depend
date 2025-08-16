@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1755311683 source:c:\users\hp\onedrive\documentos\proyecto final - copia\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
