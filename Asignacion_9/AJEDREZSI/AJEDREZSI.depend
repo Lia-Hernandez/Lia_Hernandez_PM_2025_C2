@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1753297620 source:c:\users\hp\onedrive - instituto tecnológico de las américas (itla)\lia_hernandez_pm_2025_c2\asignacion 7\programas capitulo 9\programa 9.11\ajedrezsi\main.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	<math.h>
+	<stdlib.h>
+
+1753297620 source:c:\users\hp\onedrive - instituto tecnológico de las américas (itla)\lia_hernandez_pm_2025_c2\asignacion_9\ajedrezsi\main.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	<math.h>
+	<stdlib.h>
+
