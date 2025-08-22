@@ -69,7 +69,8 @@ do{
     case 5:act_precio_combustible(&precios);
     break;
     case 6:if(num_vehiculos>0){mostrar_vehiculos(lista_vehiculos,num_vehiculos);
-    }else{printf("No hay vehiculos registrados\n");}
+    }else{
+        printf("No hay vehiculos registrados\n");}
     break;
     case 7:guardar_datos(lista_vehiculos,num_vehiculos,precios);
     printf("\nGuardando datos y saliendo del programa.\n");
